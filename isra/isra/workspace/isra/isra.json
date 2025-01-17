@@ -1,0 +1,156 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"kjnmykBF45\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">ISRA</span>\",\"col\":12}},{\"id\":\"x31_ZkEwyD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sales</b></span>\",\"col\":10}},{\"id\":\"i1Vcp90zoa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales\",\"col\":3}},{\"id\":\"USdDt42IPq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales Return\",\"col\":3}},{\"id\":\"lvNj7kGRn8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales\",\"col\":3}},{\"id\":\"C7VcSkZgPB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales Return\",\"col\":3}},{\"id\":\"FniCScGzA7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9362gOOAyz\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Purchase</b></span>\",\"col\":12}},{\"id\":\"fAGtYgxxSC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"kVBXI7RVCI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Invoice\",\"col\":3}},{\"id\":\"5X8myPd1Hp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Return\",\"col\":3}},{\"id\":\"yDsswP4thN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"2i-1E4TmaL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"kL88L3NsDo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Report\",\"col\":3}},{\"id\":\"WvR2zOGg32\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Summary\",\"col\":3}},{\"id\":\"8k2PJJ-uBT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Report\",\"col\":3}},{\"id\":\"6Re2adiOoJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cash Flow\",\"col\":3}},{\"id\":\"Kchz5shi_8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Profit Loss Account\",\"col\":3}},{\"id\":\"JjCsveNe2Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Report\",\"col\":3}},{\"id\":\"s2H6pxXi81\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Statement of Accounts\",\"col\":4}},{\"id\":\"2DaQC-oeGB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Age Report\",\"col\":3}},{\"id\":\"3ojB8cmusV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Analytics\",\"col\":3}},{\"id\":\"t5II983A_U\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"s5etHrOXNe\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance</b></span>\",\"col\":12}},{\"id\":\"pv7mzpuuQn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}}]",
+ "creation": "2025-01-14 18:16:44.089440",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "ISRA",
+ "links": [],
+ "modified": "2025-01-17 22:12:27.966445",
+ "modified_by": "Administrator",
+ "module": "isra",
+ "name": "ISRA",
+ "number_cards": [],
+ "owner": "jagadeesan.a1104@gmail.com",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Expense Entry",
+   "link_to": "Expense Claim",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Purchase Order",
+   "link_to": "Purchase Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Credit Sales",
+   "link_to": "Sales Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Age Report",
+   "link_to": "Stock Ageing",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Profit Loss Account",
+   "link_to": "Profit and Loss Statement",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Statement of Accounts",
+   "link_to": "Account Balance",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Sales Report",
+   "link_to": "Salary Register",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Inventory Report",
+   "link_to": "Stock Balance",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Credit Sales Return",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"is_return\",\"=\",1,false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stock Report",
+   "link_to": "Stock Ledger",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Sales Summary",
+   "link_to": "Accounts Payable",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Inventory Analytics",
+   "link_to": "Stock Analytics",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Cash Flow",
+   "link_to": "Cash Flow",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Purchase Invoice",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Van Sales",
+   "link_to": "Sales Order",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Purchase Return",
+   "link_to": "Purchase Invoice",
+   "stats_filter": "[[\"Purchase Invoice\",\"is_return\",\"=\",1,false]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Van Sales Return",
+   "link_to": "Sales Invoice",
+   "stats_filter": "[[\"Sales Invoice\",\"is_return\",\"=\",1,false]]",
+   "type": "DocType"
+  }
+ ],
+ "title": "ISRA"
+}
