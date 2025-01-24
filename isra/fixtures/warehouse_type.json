@@ -1,0 +1,16 @@
+[
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
+  "modified": "2025-01-23 15:43:51.938778",
+  "name": "Standard"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
+  "modified": "2025-01-23 15:44:08.990310",
+  "name": "Mobile (VAN)"
+ }
+]
