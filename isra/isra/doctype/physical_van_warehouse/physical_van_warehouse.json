@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "VAN-CHECK-.####",
+ "creation": "2025-01-27 08:30:01.513620",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "van_details_section",
+  "van_name",
+  "van_number_plate",
+  "van_location",
+  "column_break_dlpv",
+  "date",
+  "van_sales_in_charge",
+  "sales_in_charge_contact",
+  "warehouse_item_section",
+  "items"
+ ],
+ "fields": [
+  {
+   "fieldname": "van_details_section",
+   "fieldtype": "Section Break",
+   "label": "Van Details"
+  },
+  {
+   "fieldname": "van_name",
+   "fieldtype": "Data",
+   "label": "Van Name"
+  },
+  {
+   "fieldname": "van_number_plate",
+   "fieldtype": "Data",
+   "label": "Van Number Plate"
+  },
+  {
+   "fieldname": "van_location",
+   "fieldtype": "Table",
+   "label": "Van Location",
+   "options": "Warehouse Location Child"
+  },
+  {
+   "fieldname": "column_break_dlpv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "van_sales_in_charge",
+   "fieldtype": "Link",
+   "label": "Van Sales In Charge",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "sales_in_charge_contact",
+   "fieldtype": "Data",
+   "label": "Sales In Charge Contact"
+  },
+  {
+   "fieldname": "warehouse_item_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse Item"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Van Warehouse Items"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-27 09:58:05.590265",
+ "modified_by": "Administrator",
+ "module": "isra",
+ "name": "Physical Van Warehouse",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
