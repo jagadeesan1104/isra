@@ -3,6 +3,13 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Warehouse Type",
+  "modified": "2025-01-27 07:36:22.024542",
+  "name": "Transit"
+ },
+ {
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Warehouse Type",
   "modified": "2025-01-23 15:43:51.938778",
   "name": "Standard"
  },
