@@ -260,5 +260,8 @@ fixtures = [
 	},
     {
         "dt": 'Workflow',
+	},
+    {
+        "dt": 'Workflow State',
 	}
 ]
