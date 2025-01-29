@@ -7,25 +7,37 @@ class PhysicalVanWarehouse(Document):
     pass
 
 @frappe.whitelist()
-def get_sales_invoice_items(date, items):
+def get_sales_invoice_items(date, warehouse, items):
     # Parse the JSON string of items
-    get_items = json.loads(items)
+    get_items = json.loads(items) if items else []
     
-    # Extract item codes from the provided list (this can be adapted based on your fields)
+    # Extract item codes from the provided list (if needed)
     item_codes = [item['item'] for item in get_items]
 
-    # Fetch all Sales Invoices for the selected date
-    sales_invoices = frappe.get_all('Sales Invoice', filters={'posting_date': date, 'docstatus': 1}, fields=['*'])
+    # Fetch all Sales Invoices for the selected date and warehouse
+    sales_invoices = frappe.get_all(
+        'Sales Invoice',
+        filters={
+            'posting_date': date,
+            'set_warehouse': warehouse,  # Assuming "set_warehouse" is the field for the warehouse in Sales Invoice
+            'docstatus': 1
+        },
+        fields=['name']
+    )
     
     # Initialize an empty dictionary to store summed quantities for each item
     items_dict = {}
 
     # Loop through each sales invoice
     for si in sales_invoices:
-        si_items = frappe.get_all('Sales Invoice Item', filters={'parent': si.name,}, fields=['item_code', 'item_name', 'qty', 'rate', 'amount'])
+        si_items = frappe.get_all(
+            'Sales Invoice Item',
+            filters={'parent': si.name},
+            fields=['item_code', 'item_name', 'qty', 'rate', 'amount']
+        )
         
         for item in si_items:
-        # If the item already exists in the dictionary, sum the quantities and amounts
+            # If the item already exists in the dictionary, sum the quantities and amounts
             if item['item_code'] in items_dict:
                 items_dict[item['item_code']]['qty'] += item['qty']
                 items_dict[item['item_code']]['amount'] += item['amount']
@@ -38,7 +50,5 @@ def get_sales_invoice_items(date, items):
                     'rate': item['rate'],
                     'amount': item['amount']
                 }
+    
     return items_dict
-    # Return the items dictionary or process it as needed
-    # This is where you can handle it differently based on your requirements
-    # return items_dict  # You can return or process the result here, depending on your next steps
