@@ -1,0 +1,37 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2025-02-09 18:50:34.902401",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 1,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-02-09 19:05:52.654430",
+ "modified_by": "Administrator",
+ "module": "isra",
+ "name": "Month Wise Tax",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \r\n    MONTHNAME(si.transaction_date) AS `Month`,  -- Set column name to \"Month\"\r\n    SUM(si.total_taxes_and_charges) AS `Tax Amount`  -- Set column name to \"Tax Amount\"\r\nFROM `tabSales Order` si\r\nWHERE si.docstatus = 1  -- Only include submitted invoices\r\nGROUP BY MONTH(si.transaction_date)\r\nORDER BY MONTH(si.transaction_date);\r\n",
+ "ref_doctype": "Sales Order",
+ "report_name": "Month Wise Tax",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Sales Master Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Employee Self Service"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

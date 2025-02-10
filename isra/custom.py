@@ -26,3 +26,64 @@ def get_warehouse_and_location(customer):
         "sales_in_charge": None,
         "message": f"No warehouse found for the customer's location: {customer_location}"
     }
+
+
+@frappe.whitelist()
+def get_sales_invoice_item_rates(item_code, price_list=None):
+    # Fetch selling rate from Item Price
+    selling_rate = frappe.db.get_value(
+        'Item Price',
+        filters={
+            'item_code': item_code,
+            'price_list': price_list,
+            'selling': 1
+        },
+        fieldname='price_list_rate'
+    )
+
+    # Fetch previous invoice rate
+    previous_invoice_rate = frappe.db.sql("""
+        SELECT item.rate
+        FROM `tabSales Invoice Item` AS item
+        JOIN `tabSales Invoice` AS invoice
+        ON item.parent = invoice.name
+        WHERE invoice.docstatus = 1
+        AND item.item_code = %s
+        ORDER BY invoice.creation DESC
+        LIMIT 1
+    """, (item_code), as_dict=True)
+
+    return {
+        'selling_rate': selling_rate,
+        'previous_invoice_rate': previous_invoice_rate[0].rate if previous_invoice_rate else None
+    }
+
+@frappe.whitelist()
+def get_sales_order_item_rates(item_code, price_list=None):
+    # Fetch selling rate from Item Price
+    selling_rate = frappe.db.get_value(
+        'Item Price',
+        filters={
+            'item_code': item_code,
+            'price_list': price_list,
+            'selling': 1
+        },
+        fieldname='price_list_rate'
+    )
+
+    # Fetch previous invoice rate
+    previous_invoice_rate = frappe.db.sql("""
+        SELECT item.rate
+        FROM `tabSales Order Item` AS item
+        JOIN `tabSales Order` AS invoice
+        ON item.parent = invoice.name
+        WHERE invoice.docstatus = 1
+        AND item.item_code = %s
+        ORDER BY invoice.creation DESC
+        LIMIT 1
+    """, (item_code), as_dict=True)
+
+    return {
+        'selling_rate': selling_rate,
+        'previous_invoice_rate': previous_invoice_rate[0].rate if previous_invoice_rate else None
+    }

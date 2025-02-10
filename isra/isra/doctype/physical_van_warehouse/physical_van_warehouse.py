@@ -52,3 +52,51 @@ def get_sales_invoice_items(date, warehouse, items):
                 }
     
     return items_dict
+
+@frappe.whitelist()
+def get_material_transfer_items(date, warehouse, items):
+    # Parse the JSON string of items
+    get_items = json.loads(items) if items else []
+
+    # Extract item codes from the provided list (if needed)
+    item_codes = [item['item'] for item in get_items]
+
+    # Fetch all Material Requests for the selected date and warehouse
+    material_requests = frappe.get_all(
+        'Material Request',
+        filters={
+            'transaction_date': date,
+            'set_warehouse': warehouse,  # Assuming "set_warehouse" is the warehouse field in Material Request
+            'material_request_type': 'Material Transfer',
+            'docstatus': 1
+        },
+        fields=['name']
+    )
+
+    # Initialize an empty dictionary to store summed quantities for each item
+    items_dict = {}
+
+    # Loop through each material request
+    for mr in material_requests:
+        mr_items = frappe.get_all(
+            'Material Request Item',
+            filters={'parent': mr.name},
+            fields=['item_code', 'item_name', 'qty', 'rate', 'amount']
+        )
+        
+        for item in mr_items:
+            # If the item already exists in the dictionary, sum the quantities and amounts
+            if item['item_code'] in items_dict:
+                items_dict[item['item_code']]['qty'] += item['qty']
+                items_dict[item['item_code']]['amount'] += item['amount']
+            else:
+                # If the item is new, add it to the dictionary
+                items_dict[item['item_code']] = {
+                    'item_code': item['item_code'],
+                    'item_name': item['item_name'],
+                    'qty': item['qty'],
+                    'rate': item['rate'],
+                    'amount': item['amount']
+                }
+
+    return items_dict
