@@ -13,6 +13,8 @@
   "date",
   "warehouse",
   "van_sales_in_charge",
+  "sales_invoice_items_added",
+  "material_transfer_items_added",
   "warehouse_item_section",
   "items"
  ],
@@ -66,11 +68,25 @@
    "fieldtype": "Link",
    "label": "Warehouse",
    "options": "Warehouse"
+  },
+  {
+   "default": "0",
+   "fieldname": "sales_invoice_items_added",
+   "fieldtype": "Check",
+   "label": "Sales Invoice Items Added",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "material_transfer_items_added",
+   "fieldtype": "Check",
+   "label": "Material Transfer Items Added",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 22:13:15.595297",
+ "modified": "2025-02-09 20:46:24.635329",
  "modified_by": "Administrator",
  "module": "isra",
  "name": "Physical Van Warehouse",

@@ -44,8 +44,8 @@ app_license = "mit"
 
 # include js in doctype views
 doctype_js = {
-    "Sales Order" : "public/js/sales_order.js",
-    "Sales Invoice" : "public/js/sales_order.js"
+    # "Sales Order" : "public/js/sales_order.js",
+    # "Sales Invoice" : "public/js/sales_order.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -263,5 +263,13 @@ fixtures = [
 	},
     {
         "dt": 'Workflow State',
+	},
+    {
+        "dt": 'Workflow Action Master',
+	},
+    {
+        "dt": 'Client Script',
 	}
+
+
 ]
