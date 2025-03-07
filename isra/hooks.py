@@ -253,6 +253,12 @@ fixtures = [
 		]
 	},
     {
+    "dt": 'Print Format',
+		"filters": [
+		["module","=", "ISRA"]
+		]
+	},
+    {
         "dt": 'Warehouse Type',
 	},
     {
