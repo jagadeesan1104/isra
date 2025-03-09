@@ -87,3 +87,20 @@ def get_sales_order_item_rates(item_code, price_list=None):
         'selling_rate': selling_rate,
         'previous_invoice_rate': previous_invoice_rate[0].rate if previous_invoice_rate else None
     }
+
+
+@frappe.whitelist()
+def get_uoms_for_item(doctype, txt, searchfield, start, page_len, filters):
+    item_code = filters.get("item_code")
+    
+    if not item_code:
+        return []
+
+    uoms = frappe.get_all(
+        "UOM Conversion Detail",
+        filters={"parent": item_code, "parenttype": "Item", "parentfield": "uoms"},
+        fields=["uom"],
+        order_by="idx asc"
+    )
+
+    return [[u["uom"]] for u in uoms] 
