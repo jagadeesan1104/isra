@@ -14,5 +14,21 @@
   "property_type": "Text",
   "row_name": null,
   "value": "\nSales\nMaintenance\nShopping Cart\nVan Sales"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Sales Order",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "delivery_date",
+  "is_system_generated": 0,
+  "modified": "2025-03-09 11:01:14.709199",
+  "module": "isra",
+  "name": "Sales Order-delivery_date-hidden",
+  "property": "hidden",
+  "property_type": "check",
+  "row_name": null,
+  "value": "1"
  }
 ]

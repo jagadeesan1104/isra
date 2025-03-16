@@ -45,7 +45,8 @@ app_license = "mit"
 # include js in doctype views
 doctype_js = {
     # "Sales Order" : "public/js/sales_order.js",
-    # "Sales Invoice" : "public/js/sales_order.js"
+    # "Sales Invoice" : "public/js/sales_order.js",
+    "Payment Entry" : "public/js/payment_entry.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -238,6 +239,10 @@ override_doctype_class = {
 # 	"isra.auth.validate"
 # ]
 
+# Boot session
+# -----------
+# boot_session = "isra.custom.boot_session"
+
 # Automatically update python controller files with type annotations for this app.
 # export_python_type_annotations = True
 
@@ -246,35 +251,38 @@ override_doctype_class = {
 # }
 
 fixtures = [
-    {
-    "dt": 'Property Setter',
-		"filters": [
-		["module","=", "ISRA"]
-		]
-	},
+    # {
+    # "dt": 'Property Setter',
+	# 	"filters": [
+	# 	["module","=", "ISRA"]
+	# 	]
+	# },
     {
     "dt": 'Print Format',
 		"filters": [
 		["module","=", "ISRA"]
 		]
 	},
-    {
-        "dt": 'Warehouse Type',
-	},
-    {
-        "dt": 'Workspace',
-	},
-    {
-        "dt": 'Workflow',
-	},
-    {
-        "dt": 'Workflow State',
-	},
-    {
-        "dt": 'Workflow Action Master',
-	},
+    # {
+    #     "dt": 'Warehouse Type',
+	# },
+    # {
+    #     "dt": 'Workspace',
+	# },
+    # {
+    #     "dt": 'Workflow',
+	# },
+    # {
+    #     "dt": 'Workflow State',
+	# },
+    # {
+    #     "dt": 'Workflow Action Master',
+	# },
     {
         "dt": 'Client Script',
+	},
+    {
+        "dt": 'Party Type',
 	}
 
 

@@ -1,0 +1,42 @@
+[
+ {
+  "account_type": "Receivable",
+  "docstatus": 0,
+  "doctype": "Party Type",
+  "modified": "2025-01-27 07:36:21.692100",
+  "name": "Customer",
+  "party_type": "Customer"
+ },
+ {
+  "account_type": "Payable",
+  "docstatus": 0,
+  "doctype": "Party Type",
+  "modified": "2025-01-27 07:36:21.706454",
+  "name": "Supplier",
+  "party_type": "Supplier"
+ },
+ {
+  "account_type": "Payable",
+  "docstatus": 0,
+  "doctype": "Party Type",
+  "modified": "2025-01-27 07:36:21.718190",
+  "name": "Employee",
+  "party_type": "Employee"
+ },
+ {
+  "account_type": "Payable",
+  "docstatus": 0,
+  "doctype": "Party Type",
+  "modified": "2025-01-27 07:36:21.728598",
+  "name": "Shareholder",
+  "party_type": "Shareholder"
+ },
+ {
+  "account_type": "Payable",
+  "docstatus": 0,
+  "doctype": "Party Type",
+  "modified": "2025-03-16 19:42:16.827929",
+  "name": "Warehouse",
+  "party_type": "Warehouse"
+ }
+]
