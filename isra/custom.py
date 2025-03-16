@@ -1,4 +1,8 @@
 import frappe
+from frappe import _
+from frappe.utils import flt
+import erpnext
+from erpnext.accounts.doctype.payment_entry.payment_entry import PaymentEntry
 
 @frappe.whitelist()
 def get_warehouse_and_location(customer):
@@ -29,7 +33,7 @@ def get_warehouse_and_location(customer):
 
 
 @frappe.whitelist()
-def get_sales_invoice_item_rates(item_code, price_list=None):
+def get_sales_invoice_item_rates(item_code, price_list=None,customer=None):
     # Fetch selling rate from Item Price
     selling_rate = frappe.db.get_value(
         'Item Price',
@@ -42,16 +46,21 @@ def get_sales_invoice_item_rates(item_code, price_list=None):
     )
 
     # Fetch previous invoice rate
-    previous_invoice_rate = frappe.db.sql("""
+    query = """
         SELECT item.rate
         FROM `tabSales Invoice Item` AS item
         JOIN `tabSales Invoice` AS invoice
         ON item.parent = invoice.name
         WHERE invoice.docstatus = 1
         AND item.item_code = %s
-        ORDER BY invoice.creation DESC
-        LIMIT 1
-    """, (item_code), as_dict=True)
+    """
+    
+    params = [item_code]
+    if customer:
+        query += " AND invoice.customer = %s"
+        params.append(customer)
+    query += " ORDER BY invoice.creation DESC LIMIT 1"
+    previous_invoice_rate = frappe.db.sql(query, tuple(params), as_dict=True)
 
     return {
         'selling_rate': selling_rate,
@@ -59,7 +68,7 @@ def get_sales_invoice_item_rates(item_code, price_list=None):
     }
 
 @frappe.whitelist()
-def get_sales_order_item_rates(item_code, price_list=None):
+def get_sales_order_item_rates(item_code, price_list=None,customer=None):
     # Fetch selling rate from Item Price
     selling_rate = frappe.db.get_value(
         'Item Price',
@@ -72,16 +81,21 @@ def get_sales_order_item_rates(item_code, price_list=None):
     )
 
     # Fetch previous invoice rate
-    previous_invoice_rate = frappe.db.sql("""
+    query = """
         SELECT item.rate
         FROM `tabSales Order Item` AS item
         JOIN `tabSales Order` AS invoice
         ON item.parent = invoice.name
         WHERE invoice.docstatus = 1
         AND item.item_code = %s
-        ORDER BY invoice.creation DESC
-        LIMIT 1
-    """, (item_code), as_dict=True)
+    """
+
+    params = [item_code]
+    if customer:
+        query += " AND invoice.customer = %s"
+        params.append(customer)
+    query += " ORDER BY invoice.creation DESC LIMIT 1"
+    previous_invoice_rate = frappe.db.sql(query, tuple(params), as_dict=True)
 
     return {
         'selling_rate': selling_rate,
@@ -104,3 +118,5 @@ def get_uoms_for_item(doctype, txt, searchfield, start, page_len, filters):
     )
 
     return [[u["uom"]] for u in uoms] 
+
+

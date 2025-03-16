@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-16 20:20:45.732861",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "deno",
+  "column_break_jvck",
+  "pieces",
+  "column_break_trff",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "deno",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Deno"
+  },
+  {
+   "fieldname": "pieces",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Pieces"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_jvck",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_trff",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-03-16 20:49:09.815479",
+ "modified_by": "Administrator",
+ "module": "isra",
+ "name": "Denomination",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
