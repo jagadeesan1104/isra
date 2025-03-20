@@ -251,18 +251,18 @@ override_doctype_class = {
 # }
 
 fixtures = [
-    # {
-    # "dt": 'Property Setter',
-	# 	"filters": [
-	# 	["module","=", "ISRA"]
-	# 	]
-	# },
     {
-    "dt": 'Print Format',
+    "dt": 'Property Setter',
 		"filters": [
 		["module","=", "ISRA"]
 		]
 	},
+    # {
+    # "dt": 'Print Format',
+	# 	"filters": [
+	# 	["module","=", "ISRA"]
+	# 	]
+	# },
     # {
     #     "dt": 'Warehouse Type',
 	# },
