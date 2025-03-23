@@ -121,4 +121,3 @@ def get_uoms_for_item(doctype, txt, searchfield, start, page_len, filters):
 
     return [[u["uom"]] for u in uoms] 
 
-
