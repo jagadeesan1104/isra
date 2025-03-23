@@ -257,12 +257,12 @@ fixtures = [
 		["module","=", "ISRA"]
 		]
 	},
-    # {
-    # "dt": 'Print Format',
-	# 	"filters": [
-	# 	["module","=", "ISRA"]
-	# 	]
-	# },
+    {
+    "dt": 'Print Format',
+		"filters": [
+		["module","=", "ISRA"]
+		]
+	},
     # {
     #     "dt": 'Warehouse Type',
 	# },
