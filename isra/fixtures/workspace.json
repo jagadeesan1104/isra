@@ -503,7 +503,7 @@
   "hide_custom": 0,
   "icon": "crm",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "CRM",
   "links": [
    {
@@ -3465,7 +3465,7 @@
   "hide_custom": 0,
   "icon": "website",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Website",
   "links": [
    {
@@ -3951,7 +3951,7 @@
   "hide_custom": 0,
   "icon": "tool",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Tools",
   "links": [
    {
@@ -4763,7 +4763,7 @@
     "parent": "Users",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "DocShare",
     "type": "Link"
    },
    {
@@ -4961,7 +4961,7 @@
   "hide_custom": 0,
   "icon": "integration",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Integrations",
   "links": [
    {
@@ -7093,7 +7093,7 @@
     "parent": "Stock",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Serial No",
     "type": "Link"
    },
    {
@@ -7111,7 +7111,7 @@
     "parent": "Stock",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Serial No",
     "type": "Link"
    },
    {
@@ -7543,7 +7543,7 @@
     "parent": "Stock",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Stock Ledger Entry",
     "type": "Link"
    },
    {
@@ -8015,7 +8015,7 @@
   "hide_custom": 0,
   "icon": "assets",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Assets",
   "links": [
    {
@@ -8421,7 +8421,7 @@
   "hide_custom": 0,
   "icon": "project",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Projects",
   "links": [
    {
@@ -8851,7 +8851,7 @@
   "hide_custom": 0,
   "icon": "support",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Support",
   "links": [
    {
@@ -10029,7 +10029,7 @@
   "hide_custom": 0,
   "icon": "quality",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Quality",
   "links": [
    {
@@ -10387,7 +10387,7 @@
   "hide_custom": 0,
   "icon": "organization",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Manufacturing",
   "links": [
    {
@@ -11255,7 +11255,7 @@
   "hide_custom": 0,
   "icon": "integration",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "ERPNext Integrations",
   "links": [
    {
@@ -16653,7 +16653,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    },
    {
@@ -16671,7 +16671,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    },
    {
@@ -16689,7 +16689,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    },
    {
@@ -16707,7 +16707,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    },
    {
@@ -16725,7 +16725,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Order",
     "type": "Link"
    },
    {
@@ -16743,7 +16743,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    },
    {
@@ -16761,7 +16761,7 @@
     "parent": "Payables",
     "parentfield": "links",
     "parenttype": "Workspace",
-    "report_ref_doctype": null,
+    "report_ref_doctype": "Purchase Invoice",
     "type": "Link"
    }
   ],
@@ -17735,21 +17735,14 @@
  {
   "charts": [
    {
-    "chart_name": "Sales Invoice VAT Month Wise",
-    "label": "Sales Invoice VAT Month Wise",
-    "parent": "ISRA",
-    "parentfield": "charts",
-    "parenttype": "Workspace"
-   },
-   {
-    "chart_name": "Sales Order VAT Month Wise",
-    "label": "Sales Order VAT Month Wise",
+    "chart_name": "VAT Total",
+    "label": "Sales Invoice VAT",
     "parent": "ISRA",
     "parentfield": "charts",
     "parenttype": "Workspace"
    }
   ],
-  "content": "[{\"id\":\"kjnmykBF45\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">ISRA</span>\",\"col\":12}},{\"id\":\"x31_ZkEwyD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sales</b></span>\",\"col\":10}},{\"id\":\"i1Vcp90zoa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales\",\"col\":3}},{\"id\":\"USdDt42IPq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales Return\",\"col\":3}},{\"id\":\"lvNj7kGRn8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales\",\"col\":3}},{\"id\":\"C7VcSkZgPB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales Return\",\"col\":3}},{\"id\":\"5G7tvRyjDS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Physical Van Warehouse\",\"col\":3}},{\"id\":\"FniCScGzA7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9362gOOAyz\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Purchase</b></span>\",\"col\":12}},{\"id\":\"fAGtYgxxSC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"kVBXI7RVCI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Invoice\",\"col\":3}},{\"id\":\"5X8myPd1Hp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Return\",\"col\":3}},{\"id\":\"yDsswP4thN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"2i-1E4TmaL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"kL88L3NsDo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Report\",\"col\":3}},{\"id\":\"WvR2zOGg32\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Summary\",\"col\":3}},{\"id\":\"8k2PJJ-uBT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Report\",\"col\":3}},{\"id\":\"6Re2adiOoJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cash Flow\",\"col\":3}},{\"id\":\"BEQ_aIbSJM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Daily Closing Report\",\"col\":3}},{\"id\":\"Kchz5shi_8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Profit Loss Account\",\"col\":3}},{\"id\":\"JjCsveNe2Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Report\",\"col\":3}},{\"id\":\"s2H6pxXi81\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Statement of Accounts\",\"col\":4}},{\"id\":\"2DaQC-oeGB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Age Report\",\"col\":3}},{\"id\":\"3ojB8cmusV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Analytics\",\"col\":3}},{\"id\":\"t5II983A_U\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"s5etHrOXNe\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance</b></span>\",\"col\":12}},{\"id\":\"pv7mzpuuQn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"JPSfv_1Ekw\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"aBEa-5az_X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Dashboard</b></span>\",\"col\":12}},{\"id\":\"cY0e18liFi\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Sales Order VAT Month Wise\",\"col\":12}},{\"id\":\"OdLhdXEG6M\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Sales Invoice VAT Month Wise\",\"col\":12}}]",
+  "content": "[{\"id\":\"kjnmykBF45\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">ISRA</span>\",\"col\":12}},{\"id\":\"x31_ZkEwyD\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Sales</b></span>\",\"col\":10}},{\"id\":\"i1Vcp90zoa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales\",\"col\":3}},{\"id\":\"USdDt42IPq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Credit Sales Return\",\"col\":3}},{\"id\":\"lvNj7kGRn8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales\",\"col\":3}},{\"id\":\"C7VcSkZgPB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Van Sales Return\",\"col\":3}},{\"id\":\"5G7tvRyjDS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Physical Van Warehouse\",\"col\":3}},{\"id\":\"FniCScGzA7\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9362gOOAyz\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Purchase</b></span>\",\"col\":12}},{\"id\":\"fAGtYgxxSC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Order\",\"col\":3}},{\"id\":\"kVBXI7RVCI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Invoice\",\"col\":3}},{\"id\":\"5X8myPd1Hp\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Purchase Return\",\"col\":3}},{\"id\":\"yDsswP4thN\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"2i-1E4TmaL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports</b></span>\",\"col\":12}},{\"id\":\"kL88L3NsDo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Report\",\"col\":3}},{\"id\":\"WvR2zOGg32\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Summary\",\"col\":3}},{\"id\":\"8k2PJJ-uBT\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Report\",\"col\":3}},{\"id\":\"6Re2adiOoJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cash Flow\",\"col\":3}},{\"id\":\"BEQ_aIbSJM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Daily Closing Report\",\"col\":3}},{\"id\":\"Kchz5shi_8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Profit Loss Account\",\"col\":3}},{\"id\":\"JjCsveNe2Z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Report\",\"col\":3}},{\"id\":\"s2H6pxXi81\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Statement of Accounts\",\"col\":4}},{\"id\":\"2DaQC-oeGB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stock Age Report\",\"col\":3}},{\"id\":\"3ojB8cmusV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Inventory Analytics\",\"col\":3}},{\"id\":\"t5II983A_U\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"s5etHrOXNe\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Finance</b></span>\",\"col\":12}},{\"id\":\"pv7mzpuuQn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Entry\",\"col\":3}},{\"id\":\"JPSfv_1Ekw\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"aBEa-5az_X\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Dashboard</b></span>\",\"col\":12}},{\"id\":\"ebFBd5l_6e\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Sales Invoice VAT\",\"col\":12}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -17760,7 +17753,7 @@
   "is_hidden": 0,
   "label": "ISRA",
   "links": [],
-  "modified": "2025-02-09 19:14:47.048401",
+  "modified": "2025-03-24 21:35:02.595662",
   "module": "isra",
   "name": "ISRA",
   "number_cards": [],
@@ -18088,7 +18081,7 @@
   "hide_custom": 0,
   "icon": "tool",
   "indicator_color": null,
-  "is_hidden": 1,
+  "is_hidden": 0,
   "label": "Build",
   "links": [
    {

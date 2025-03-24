@@ -142,10 +142,8 @@ override_doctype_class = {
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
+# 	"Sales Invoice": {
+# 		"validate": "isra.override.sales_invoice.validate_item_price_less_than_buying_price"
 # 	}
 # }
 
@@ -251,18 +249,18 @@ override_doctype_class = {
 # }
 
 fixtures = [
-    {
-    "dt": 'Property Setter',
-		"filters": [
-		["module","=", "ISRA"]
-		]
-	},
-    {
-    "dt": 'Print Format',
-		"filters": [
-		["module","=", "ISRA"]
-		]
-	},
+    # {
+    # "dt": 'Property Setter',
+	# 	"filters": [
+	# 	["module","=", "ISRA"]
+	# 	]
+	# },
+    # {
+    # "dt": 'Print Format',
+	# 	"filters": [
+	# 	["module","=", "ISRA"]
+	# 	]
+	# },
     # {
     #     "dt": 'Warehouse Type',
 	# },
