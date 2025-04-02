@@ -279,9 +279,9 @@ fixtures = [
     {
         "dt": 'Client Script',
 	},
-    {
-        "dt": 'Party Type',
-	}
+    # {
+    #     "dt": 'Party Type',
+	# }
 
 
 ]
