@@ -67,17 +67,6 @@ frappe.ui.form.on('Payment Entry', {
                             row.due_date = invoice.due_date;
                             row.total_amount = invoice.grand_total;
                             row.outstanding_amount = invoice.outstanding_amount;
-                            
-                            // Set allocated amount if needed
-                            if (filters.allocate_payment_amount) {
-                                let allocated_amount = Math.min(frm.doc.unallocated_amount || frm.doc.paid_amount || 0, invoice.outstanding_amount);
-                                row.allocated_amount = allocated_amount;
-                                
-                                // Reduce unallocated amount for next allocation
-                                if (frm.doc.unallocated_amount) {
-                                    frm.doc.unallocated_amount -= allocated_amount;
-                                }
-                            }
                         });
                         
                         // Refresh the form
