@@ -141,11 +141,11 @@ override_doctype_class = {
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-	"Sales Invoice": {
-		"validate": "isra.override.sales_invoice.validate_item_price_less_than_buying_price"
-	}
-}
+# doc_events = {
+# 	"Sales Invoice": {
+# 		"validate": "isra.override.sales_invoice.validate_item_price_less_than_buying_price"
+# 	}
+# }
 
 # Scheduled Tasks
 # ---------------
