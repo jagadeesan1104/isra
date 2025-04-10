@@ -141,11 +141,14 @@ override_doctype_class = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"Sales Invoice": {
-# 		"validate": "isra.override.sales_invoice.validate_item_price_less_than_buying_price"
-# 	}
-# }
+# # Add these lines to your hooks.py file
+
+doc_events = {
+    "Payment Entry": {
+        "on_submit": "isra.override.payment_entry.update_invoice_status_after_submit",
+        "on_cancel": "isra.override.payment_entry.update_invoice_status_on_cancel"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -255,12 +258,12 @@ fixtures = [
 	# 	["module","=", "ISRA"]
 	# 	]
 	# },
-    # {
-    # "dt": 'Print Format',
-	# 	"filters": [
-	# 	["module","=", "ISRA"]
-	# 	]
-	# },
+    {
+    "dt": 'Print Format',
+		"filters": [
+		["module","=", "ISRA"]
+		]
+	},
     # {
     #     "dt": 'Warehouse Type',
 	# },
@@ -276,9 +279,9 @@ fixtures = [
     # {
     #     "dt": 'Workflow Action Master',
 	# },
-    {
-        "dt": 'Client Script',
-	},
+    # {
+    #     "dt": 'Client Script',
+	# },
     # {
     #     "dt": 'Party Type',
 	# }
