@@ -121,3 +121,20 @@ def get_uoms_for_item(doctype, txt, searchfield, start, page_len, filters):
 
     return [[u["uom"]] for u in uoms] 
 
+
+@frappe.whitelist()
+def get_incoming_rate(item_code, warehouse, posting_date=None):
+    from erpnext.stock.utils import get_incoming_rate
+
+    if not posting_date:
+        posting_date = nowdate()
+
+    args = {
+        "item_code": item_code,
+        "warehouse": warehouse,
+        "posting_date": posting_date,
+        "qty": 1  # Dummy qty to calculate
+    }
+
+    rate = get_incoming_rate(args)
+    return rate or 0.0
