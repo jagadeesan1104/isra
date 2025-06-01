@@ -258,12 +258,12 @@ fixtures = [
 	# 	["module","=", "ISRA"]
 	# 	]
 	# },
-    {
-    "dt": 'Print Format',
-		"filters": [
-		["module","=", "ISRA"]
-		]
-	},
+    # {
+    # "dt": 'Print Format',
+	# 	"filters": [
+	# 	["module","=", "ISRA"]
+	# 	]
+	# },
     # {
     #     "dt": 'Warehouse Type',
 	# },
@@ -279,9 +279,12 @@ fixtures = [
     # {
     #     "dt": 'Workflow Action Master',
 	# },
-    # {
-    #     "dt": 'Client Script',
-	# },
+    {
+        "dt": 'Client Script',
+	},
+    {
+        "dt":"Letter Head",
+    }
     # {
     #     "dt": 'Party Type',
 	# }
