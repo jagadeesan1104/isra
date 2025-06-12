@@ -121,20 +121,32 @@ def get_uoms_for_item(doctype, txt, searchfield, start, page_len, filters):
 
     return [[u["uom"]] for u in uoms] 
 
-
 @frappe.whitelist()
-def get_incoming_rate(item_code, warehouse, posting_date=None):
-    from erpnext.stock.utils import get_incoming_rate
+def get_latest_purchase_rate(item_code):
+    # ✅ First: Check latest submitted Purchase Order
+    purchase_order_item = frappe.db.sql("""
+        SELECT poi.rate
+        FROM `tabPurchase Order Item` poi
+        JOIN `tabPurchase Order` po ON po.name = poi.parent
+        WHERE poi.item_code = %s AND po.docstatus = 1
+        ORDER BY po.transaction_date DESC, po.creation DESC
+        LIMIT 1
+    """, (item_code,), as_dict=True)
 
-    if not posting_date:
-        posting_date = nowdate()
+    if purchase_order_item:
+        return purchase_order_item[0].get("rate")
 
-    args = {
-        "item_code": item_code,
-        "warehouse": warehouse,
-        "posting_date": posting_date,
-        "qty": 1  # Dummy qty to calculate
-    }
+    # ❌ If not found, fallback to Purchase Invoice
+    purchase_invoice_item = frappe.db.sql("""
+        SELECT pii.base_rate
+        FROM `tabPurchase Invoice Item` pii
+        JOIN `tabPurchase Invoice` pi ON pi.name = pii.parent
+        WHERE pii.item_code = %s AND pi.docstatus = 1
+        ORDER BY pi.posting_date DESC, pi.creation DESC
+        LIMIT 1
+    """, (item_code,), as_dict=True)
 
-    rate = get_incoming_rate(args)
-    return rate or 0.0
+    if purchase_invoice_item:
+        return purchase_invoice_item[0].get("base_rate")
+
+    return 0.0
