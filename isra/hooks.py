@@ -42,6 +42,10 @@ app_license = "mit"
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
+app_include_js = [
+    "/assets/isra/js/gross_profit_report.js"
+]
+
 # include js in doctype views
 doctype_js = {
     # "Sales Order" : "public/js/sales_order.js",

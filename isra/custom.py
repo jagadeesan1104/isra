@@ -150,3 +150,8 @@ def get_latest_purchase_rate(item_code):
         return purchase_invoice_item[0].get("base_rate")
 
     return 0.0
+
+@frappe.whitelist()
+def get_stock_qty(item_code):
+    return frappe.get_value("Bin", {"item_code": item_code}, "sum(actual_qty)") or 0
+
