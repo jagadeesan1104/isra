@@ -151,6 +151,12 @@ doc_events = {
     "Payment Entry": {
         "on_submit": "isra.override.payment_entry.update_invoice_status_after_submit",
         "on_cancel": "isra.override.payment_entry.update_invoice_status_on_cancel"
+    },
+    "Sales Invoice": {
+        "validate": [
+            "isra.override.sales_invoice.validate_item_uom",
+            "isra.override.sales_invoice.validate_item_price_less_than_buying_price"
+        ]
     }
 }
 
