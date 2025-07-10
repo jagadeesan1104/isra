@@ -1,0 +1,25 @@
+[
+ {
+  "align": "Left",
+  "content": "<table style=\"width: 100%;\">\n  <tbody><tr>\n    <td style=\"text-align: left; vertical-align: middle;\">\n      <strong><h3>ISRA TRADING LLC</h3></strong>\n      Warehouse No.9, 4B Street<br>\n      Ras Al Khor, Dubai, U.A.E.\n    </td>\n    <td style=\"width: 220px; text-align: right;\">\n      <img src=\"/files/WhatsApp Image 2025-02-14 at 7.14.36 PM47abeb.jpeg\" alt=\"Isra Trading LLC\" style=\"height: 100px; width: 180px;\">\n    </td>\n  </tr>\n</tbody></table>\n",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": "<hr>\n<footer style=\"margin-top: 20px; text-align: center;font-size:14px;\">\n    <p>+971 42868188 | operations@alisra.co | www.israuae.com<br>\nP.O. Box: 300058 | Warehouse no. 9, Ras Al Khor, Industrial Area 2, Dubai, UAE</p>\n</footer>",
+  "footer_align": "Left",
+  "footer_image": null,
+  "footer_image_height": 0.0,
+  "footer_image_width": 0.0,
+  "footer_script": null,
+  "footer_source": "HTML",
+  "header_script": null,
+  "image": null,
+  "image_height": 0.0,
+  "image_width": 0.0,
+  "is_default": 1,
+  "letter_head_name": "Isra Trading LLC",
+  "modified": "2025-07-10 18:46:39.164476",
+  "name": "Isra Trading LLC",
+  "source": "HTML"
+ }
+]

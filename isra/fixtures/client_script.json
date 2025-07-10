@@ -42,5 +42,16 @@
   "name": "Purchase Invoice Customize",
   "script": "frappe.ui.form.on('Purchase Invoice', {\n\tvalidate: function(frm) {\n        if (frm.is_new()) {\n            frm.set_value('disable_rounded_total', 1);\n            frm.set_df_property('disable_rounded_total', 'read_only', 1);\n        }\n    },\n    refresh: function(frm) {\n        // Ensure the script runs only when creating a new Sales Order\n        frm.fields_dict[\"items\"].grid.get_field(\"uom\").get_query = function (doc, cdt, cdn) {\n            let row = locals[cdt][cdn];\n\n            if (!row.item_code) {\n                return { filters: {} };\n            }\n\n            return {\n                query: \"isra.custom.get_uoms_for_item\",\n                filters: { item_code: row.item_code }\n            };\n        };\n    },\n})",
   "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Item",
+  "enabled": 1,
+  "modified": "2025-07-10 18:17:59.993250",
+  "module": "isra",
+  "name": "Item-List",
+  "script": "frappe.listview_settings[\"Item\"] = {\n\tbutton: {\n\t\tshow(doc) {\n\t\t\treturn doc.name;\n\t\t},\n\t\tget_label() {\n\t\t\treturn frappe.utils.icon(\"help\", \"lg\");\n\t\t},\n\t\tget_description(doc) {\n\t\t\treturn __(\"Item {0}\", [`${doc.name}`]);\n\t\t},\n\t\taction(doc) {\n\t\t    let [stock_qty, last_purchase_price] = get_item_info(doc.name)\n\t\t    frappe.msgprint({\n                title: __('Item Info'),\n                indicator: 'green',\n                message: __(`\n                    <table style=\"width: 100%; max-width: 500px;\">\n                      <tr>\n                        <td style=\"width: 50%; text-align: left; padding: 5px;\">Item Name</td>\n                        <td style=\"text-align: left; padding: 5px;\"><strong>: ${doc.item_name}</strong></td>\n                      </tr>\n                      <tr>\n                        <td style=\"text-align: left; padding: 5px;\">Stock Qty</td>\n                        <td style=\"text-align: left; padding: 5px;\"><strong>: ${stock_qty}</strong></td>\n                      </tr>\n                      <tr>\n                        <td style=\"text-align: left; padding: 5px;\">Rate</td>\n                        <td style=\"text-align: left; padding: 5px;\"><strong>: د.إ ${last_purchase_price}</strong></td>\n                      </tr>\n                    </table>\n                `)\n            });\n\t\t},\n\t},\n};\n\nfunction get_item_info(item_code){\n    let stock_qty = 0\n    let last_purchase_price = 0\n    if (item_code){\n        frappe.call({\n            method: \"isra.custom.get_item_rate_and_qty\",\n            args: {\n                item_code: item_code\n            },\n            async:false,\n            callback: function (r) {\n                stock_qty = r.message.stock_qty\n                last_purchase_price = r.message.last_purchase_price\n            }\n        });\n    }\n    return [stock_qty, last_purchase_price]\n}",
+  "view": "List"
  }
 ]

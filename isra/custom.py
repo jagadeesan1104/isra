@@ -148,10 +148,29 @@ def get_latest_purchase_rate(item_code):
 
     if purchase_invoice_item:
         return purchase_invoice_item[0].get("base_rate")
-
     return 0.0
 
 @frappe.whitelist()
 def get_stock_qty(item_code):
     return frappe.get_value("Bin", {"item_code": item_code}, "sum(actual_qty)") or 0
 
+@frappe.whitelist()
+def get_latest_purchase_price(item_code):
+    purchase_invoice_item = frappe.db.sql("""
+        SELECT pii.base_rate
+        FROM `tabPurchase Invoice Item` pii
+        JOIN `tabPurchase Invoice` pi ON pi.name = pii.parent
+        WHERE pii.item_code = %s AND pi.docstatus = 1
+        ORDER BY pi.posting_date DESC, pi.creation DESC
+        LIMIT 1
+    """, (item_code,), as_dict=True)
+
+    if purchase_invoice_item:
+        return purchase_invoice_item[0].get("base_rate")
+    return 0.0
+
+@frappe.whitelist()
+def get_item_rate_and_qty(item_code):
+    stock_qty = get_stock_qty(item_code)
+    last_purchase_price = get_latest_purchase_price(item_code)
+    return {"stock_qty": stock_qty, "last_purchase_price": last_purchase_price}
