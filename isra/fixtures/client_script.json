@@ -2,6 +2,17 @@
  {
   "docstatus": 0,
   "doctype": "Client Script",
+  "dt": "Purchase Invoice",
+  "enabled": 1,
+  "modified": "2025-08-05 20:48:02.706880",
+  "module": "isra",
+  "name": "Purchase Invoice",
+  "script": "frappe.ui.form.on('Purchase Invoice', {\n\trefresh(frm) {\n\t\t// your code here\n\t},\n\tbefore_save(frm){\n\t    frm.set_value(\"recoverable_standard_rated_expenses\",frm.doc.total_taxes_and_charges)\n\t}\n})",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
   "dt": "Sales Invoice",
   "enabled": 1,
   "modified": "2025-06-16 21:56:28.022529",
