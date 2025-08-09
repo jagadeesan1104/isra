@@ -43,6 +43,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 app_include_js = [
+    "/assets/isra/js/general_ledger.js",
     "/assets/isra/js/gross_profit_report.js"
 ]
 
