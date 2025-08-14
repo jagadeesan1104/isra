@@ -174,3 +174,34 @@ def get_item_rate_and_qty(item_code):
     stock_qty = get_stock_qty(item_code)
     last_purchase_price = get_latest_purchase_price(item_code)
     return {"stock_qty": stock_qty, "last_purchase_price": last_purchase_price}
+
+@frappe.whitelist()
+def get_last_sale_qty(item_code, customer):
+    # Fetch the last sales invoice item for the given item and customer
+    sales_invoice_item = frappe.db.sql("""
+        SELECT sii.qty, sii.parent AS invoice_name
+        FROM `tabSales Invoice Item` sii
+        JOIN `tabSales Invoice` si ON si.name = sii.parent
+        WHERE sii.item_code = %s AND si.customer = %s AND si.docstatus = 1 AND si.return_against IS NULL
+        ORDER BY si.posting_date DESC, si.creation DESC
+        LIMIT 1
+    """, (item_code, customer), as_dict=True)
+
+    if not sales_invoice_item:
+        return 0.0
+
+    last_sale_qty = sales_invoice_item[0].get("qty")
+    invoice_name = sales_invoice_item[0].get("invoice_name")
+
+    # Check if there is a return against the last sales invoice
+    return_entry = frappe.db.sql("""
+        SELECT sii.qty
+        FROM `tabSales Invoice Item` sii
+        JOIN `tabSales Invoice` si ON si.name = sii.parent
+        WHERE si.return_against = %s AND sii.item_code = %s AND si.docstatus = 1
+    """, (invoice_name, item_code), as_dict=True)
+    if return_entry:
+        returned_qty = sum(entry.get("qty") for entry in return_entry)
+        last_sale_qty += returned_qty
+
+    return last_sale_qty

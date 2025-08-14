@@ -263,6 +263,12 @@ doc_events = {
 # }
 
 fixtures = [
+    {
+        "dt": 'Client Script',
+	},
+    {
+        "dt":"Letter Head",
+    }
     # {
     # "dt": 'Property Setter',
 	# 	"filters": [
@@ -290,12 +296,6 @@ fixtures = [
     # {
     #     "dt": 'Workflow Action Master',
 	# },
-    {
-        "dt": 'Client Script',
-	},
-    {
-        "dt":"Letter Head",
-    }
     # {
     #     "dt": 'Party Type',
 	# }
