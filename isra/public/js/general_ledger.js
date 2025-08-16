@@ -224,7 +224,11 @@ erpnext.utils.add_dimensions("General Ledger", 15);
 
 frappe.query_reports["General Ledger"].onload = function(report) {
 	report.page.add_inner_button(__('Denomination Tool'), () => {
-        console.log("meow")
+		let balance = 0
+		const totalRow = report.data.slice().reverse().find(row => row.account === "'Total'");
+		if (totalRow) {
+			balance = totalRow.balance
+		}
 		const dialog = new frappe.ui.Dialog({
 			title: __("Denomination Tool"),
 			fields: [
@@ -263,10 +267,22 @@ frappe.query_reports["General Ledger"].onload = function(report) {
 						},
 					]
 				},
-				{ label: __("Total Amount"), fieldname: "total_amount", fieldtype: "Currency", read_only: 1, width: 100 }
+				{ fieldtype: "Section Break" },
+				{ label: __("Account Holding Amount"), fieldname: "account_holding_amount", fieldtype: "Currency", read_only: 1, width: 50 },
+				{ fieldtype: "Column Break" },
+				{ label: __("Denomination Total Amount"), fieldname: "deno_total_amount", fieldtype: "Currency", read_only: 1, width: 50 },
+				{ fieldtype: "Column Break" },
+				{ label: __("Difference Amount"), fieldname: "diff_amount", fieldtype: "Currency", read_only: 1, width: 50, bold:true },
 			],
+			primary_action_label: __('Download'),
+			primary_action: () => {
+				const data = dialog.get_values().denominations;
+				window.open(`/api/method/isra.custom.download_denomination_report?data=${encodeURIComponent(JSON.stringify(data))}&&account_amount=${balance}`);
+			},
 		});
-
+		// const deno_total_amount = dialog.get_field('deno_total_amount');
+		// console.log(deno_total_amount)
+		dialog.set_value('account_holding_amount', balance);
 		dialog.show();
 		dialog.fields_dict.denominations.grid.wrapper.on('change', '[data-fieldname="pieces"], [data-fieldname="denomination"]', function() {
 			const denom = dialog.fields_dict.denominations.grid.get_data();
@@ -275,7 +291,8 @@ frappe.query_reports["General Ledger"].onload = function(report) {
 			});
 			dialog.refresh();
 			const total = denom.reduce((acc, cur) => acc + cur.total, 0);
-			dialog.set_value('total_amount', total);
+			dialog.set_value('deno_total_amount', total);
+			dialog.set_value('diff_amount', total - balance);
 		});
 	});
 };

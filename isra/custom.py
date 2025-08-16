@@ -1,7 +1,7 @@
 import frappe
 from frappe import _
 from frappe.utils import flt
-import erpnext
+import json
 from erpnext.accounts.doctype.payment_entry.payment_entry import PaymentEntry
 
 @frappe.whitelist()
@@ -205,3 +205,64 @@ def get_last_sale_qty(item_code, customer):
         last_sale_qty += returned_qty
 
     return last_sale_qty
+
+@frappe.whitelist()
+def download_denomination_report(data, account_amount:float):
+    from openpyxl import Workbook
+    from openpyxl.styles import Font, Alignment
+    from io import BytesIO 
+    if isinstance(data, str):
+        data = json.loads(data)
+    denominations = []
+    total = 0
+    for i in data:
+        row_total = float(i['denomination']) * float(i['pieces'])
+        total += row_total
+        denominations.append((f"{i['denomination']} X {i['pieces']}", row_total))
+    cash_short = total - account_amount  # -100
+
+    # Create workbook
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Cash Report"
+
+    # Headers
+    ws.column_dimensions["A"].width = 25
+    ws.column_dimensions["B"].width = 10
+    ws["A1"] = "Denomination"
+    ws["B1"] = "Amount"
+    ws["A1"].font = ws["B1"].font = Font(bold=True)
+    ws["A1"].alignment = ws["B1"].alignment = Alignment(horizontal="center")
+
+    # Data rows
+    row = 2
+    for denom, amt in denominations:
+        ws[f"A{row}"] = denom
+        ws[f"B{row}"] = amt
+        row += 1
+
+    row += 1
+    # Totals
+    ws[f"A{row}"] = "Total Cash In Hand"
+    ws[f"B{row}"] = total
+    ws[f"A{row}"].font = ws[f"B{row}"].font = Font(bold=True)
+
+    row += 1
+    ws[f"A{row}"] = "Total Amount In Account"
+    ws[f"B{row}"] = account_amount
+    ws[f"A{row}"].font = ws[f"B{row}"].font = Font(bold=True)
+
+    row += 1
+    ws[f"A{row}"] = "Cash Short"
+    ws[f"B{row}"] = cash_short
+    ws[f"A{row}"].font = ws[f"B{row}"].font = Font(bold=True)
+
+    # Save to BytesIO
+    output = BytesIO()
+    wb.save(output)
+    output.seek(0)
+
+    # Prepare Frappe response
+    frappe.local.response.filename = "denomination_report.xlsx"
+    frappe.local.response.filecontent = output.getvalue()
+    frappe.local.response.type = "download"
